@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:GetContactMobileN"
+             x:Class="Sekreter.UI.Views.MainContactPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar TextChanged="Searchbar_TextChanged"></SearchBar>
+            <ListView x:Name="lst_Contacts" HasUnevenRows="True"  ItemTapped="OnItemTap" IsGroupingEnabled="True" GroupDisplayBinding="{Binding Key}" ItemsSource="{Binding GroupData}" GroupShortNameBinding="{Binding Key}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label x:Name="lbl_Name" Text="{Binding Name}"/>
+                                <Label x:Name="lbl_PhoneNumber" Text="{Binding Number}" IsVisible="False"/>
+                                <Label x:Name="lbl_Email" Text="{Binding Email}" IsVisible="False"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
